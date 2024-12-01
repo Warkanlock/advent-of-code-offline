@@ -1,0 +1,5 @@
+.vim
+venv/
+.ropenproject/:q
+:q
+
