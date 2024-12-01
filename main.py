@@ -2,6 +2,7 @@ import os
 import requests
 import argparse
 import logging
+from bs4 import BeautifulSoup
 
 logging.basicConfig(
     level=logging.INFO,
@@ -13,20 +14,21 @@ logging.basicConfig(
 
 def download_problem_set(year, start_day, end_day, session_token):
     base_url = "https://adventofcode.com"
-    headers = {"Cookie": f"session={session_token}"}
+    headers = {"Cookie": f"session={session_token}", "User-Agent": "Mozilla/5.0"}
 
     for day in range(start_day, end_day + 1):
         day_folder = f"problems/{year}/day/{day}"
         os.makedirs(day_folder, exist_ok=True)
-
         logging.info(f"Downloading set for day {day} of {year}.")
 
         # Download problem set page
         problem_url = f"{base_url}/{year}/day/{day}"
+        logging.info(f'trying to get {problem_url}...')
         problem_response = requests.get(problem_url, headers=headers)
         if problem_response.status_code == 200:
+            soup = BeautifulSoup(problem_response.text, 'html.parser')
             with open(f"{day_folder}/index.html", "w", encoding="utf-8") as f:
-                f.write(problem_response.text)
+                f.write(str(soup.body))
             logging.info(f"problem {day} downloaded successfully.")
         else:
             print(
