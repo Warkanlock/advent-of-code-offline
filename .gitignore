@@ -1,5 +1,6 @@
 .vim
 venv/
-.ropenproject/:q
-:q
-
+.ropenproject/
+.mypy_cache/
+problems/
+.DS_Store
