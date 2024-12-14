@@ -25,11 +25,12 @@ A Python script to download all problem sets and input files from [Advent of Cod
 Run the script with your Advent of Code session token:
 
 python script.py <year> --start_day <start_day> --end_day <end_day> --session_token <session_token>
-
-	•	<year>: Year of the Advent of Code (e.g., 2021).
-	•	--start_day: Starting day (default: 1).
-	•	--end_day: Ending day (default: 25).
-	•	--session_token: Your session token from Advent of Code cookies.
+```
+<year>: Year of the Advent of Code (e.g., 2021).
+--start_day: Starting day (default: 1).
+--end_day: Ending day (default: 25).
+--session_token: Your session token from Advent of Code cookies.
+```
 
 ### Example
 
@@ -39,8 +40,8 @@ This will download all problems and inputs for 2022.
 
 ## Notes
 
-	•	Your session token is required to access the input files.
-	•	Ensure your session token is kept private and not shared.
+- Your session token is required to access the input files.
+- Ensure your session token is kept private and not shared.
 
 ## License
 
